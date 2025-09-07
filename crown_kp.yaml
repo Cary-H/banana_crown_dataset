@@ -1,7 +1,7 @@
 #数据集在相对 datasets 目录下的文件夹路径，打开就是images和labels
 path: D:/datasets
 
-# 训练集、验证集、测试集相对于 path 的路径(一般不用区分验证集和测试集，统称测集)
+# 训练集、验证集、测试集相对于 path 的路径
 train: train
 val: val
 test: test
