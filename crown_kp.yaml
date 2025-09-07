@@ -1,4 +1,4 @@
-#数据集在相对 datasets 目录下的文件夹路径，打开就是images和labels
+#数据集的文件夹路径
 path: D:/datasets
 
 # 训练集、验证集、测试集相对于 path 的路径
