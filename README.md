@@ -1,6 +1,6 @@
 # banana_crown_dataset
-香蕉冠数据集：自制的香蕉冠部图像数据集（共计6620张），拍摄方向自然生长方向的顶部视角，添加了用于关键点检测的YOLO (You Only Look Once) .txt格式的标签，可直接用于机器学习训练，助力农业智能化发展。
-A self-made dataset of banana crown images (A total of 6,620), captured from a top-view perspective in alignment with the natural growth direction. It incorporates YOLO (You Only Look Once) .txt format labels for keypoint detection, enabling direct use in machine learning training and contributing to the advancement of intelligent agriculture.
+香蕉冠数据集：自制的香蕉冠部图像数据集（共计6620张包含原始和增强的图片），拍摄方向自然生长方向的顶部视角，添加了用于关键点检测的YOLO (You Only Look Once) .txt格式的标签，可直接用于机器学习训练，助力农业智能化发展。
+A self-made dataset of banana crown images (A total of 6,620 images, including original and enhanced ones), captured from a top-view perspective in alignment with the natural growth direction. It incorporates YOLO (You Only Look Once) .txt format labels for keypoint detection, enabling direct use in machine learning training and contributing to the advancement of intelligent agriculture.
 
 
 # 使用方法（How to use）
