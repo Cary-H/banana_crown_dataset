@@ -1,14 +1,18 @@
-#数据集的文件夹路径
-path: D:/datasets
+# 数据集的文件夹路径
+# Folder path of the dataset
+path: D:/banana_crown_dataset
 
-# 训练集、验证集、测试集相对于 path 的路径
+# 训练集、验证集、测试集的路径（不用修改）
+# The paths of the training set, validation set and test set (no need to modify)
 train: train
 val: val
 test: test
 
 # 4 种关键点，每个关键点有 XY 是否可见 共计三个参数 (txt中是否可见:2-可见不遮挡 1-遮挡 0-没有点)
+# There are 4 key points, and each key point has a total of three parameters: x, y, and whether it is visible (whether it is visible in txt :2- visible, not occluded; 1- occluded; 0- no point)
 kpt_shape: [4, 3]
 
-# 框的类别(对于关键点检测，只有一类)
+# 框的类别
+# The category of the box
 names:
     0: crown
