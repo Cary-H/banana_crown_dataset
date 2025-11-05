@@ -1,0 +1,41 @@
+基于YOLO（Ultralytics  v8.3.78）关键点检测（pose）的训练参数
+#Training parameters based on keypoint detection (pose) using YOLO (Ultralytics v8.3.78)
+
+    model = YOLO('ultralytics/cfg/models/v8/yolov8n-pose.yaml')
+    model.train(data='crown_kp.yaml',
+                cache=True,
+                imgsz=640,
+                epochs=500,
+                batch=32,
+                close_mosaic=50, 
+                workers=2,
+                device='0',
+                pretrained=False,
+                optimizer='Adam',
+                project='runs/train',
+                lr0=0.001, # initial learning rate (i.e. SGD=1E-2, Adam=1E-3)
+                lrf=0.01, # final learning rate (lr0 * lrf)
+                name='yolov8npose',
+                )
+    metrics = model.val()  
+
+
+
+获得了关键点序列 points_3d，如何通过圆拟合成切割弧的关键程序：
+#Having obtained the sequence of key points points_3d, the key procedure for converting it into the key arc for cutting
+
+                matrix_a=[]
+                matrix_b=[]
+                for i in range(points_3d.shape[1]):
+                    # 提取二维坐标
+                    x = points_3d[i][0]  # 提取x坐标
+                    y = points_3d[i][1]  # 提取y坐标
+                    # 构建AX=B的求解矩阵中A,B
+                    matrix_a.append([x, y, 1])
+                    matrix_b.append((x * x + y * y))
+                matrix_d = np.linalg.lstsq(matrix_a, matrix_b, rcond=None)[0]
+                circle_x = 0.5 * matrix_d[0]
+                circle_y = 0.5 * matrix_d[1]
+                circle_r = math.sqrt(circle_x * circle_x + circle_y * circle_y + matrix_d[2])
+                # 输出结果
+                print(f"3d尺寸下，拟合圆心: ({circle_x*1000:.2f}, {circle_y*1000:.2f}), 半径: {circle_r*1000:.2f}")
